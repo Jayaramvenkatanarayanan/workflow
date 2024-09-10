@@ -11,10 +11,12 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
     inputs:
+     myInput:
+        default: myInput values
      environment:
        description: "Env against to run"
        type: environment
-       required: true
+       required: false
 
 jobs:
   echo:
@@ -23,3 +25,4 @@ jobs:
       - name: Show the trigger
         run: |
           echo "Event name: ${{github.event_name}}"
+          echo " get the value from work_dispatcher : ${{github.event.input}}"
