@@ -36,4 +36,4 @@ jobs:
           echo "workflow myName: ${{env.MY_NAME}}"
       - name: checking the trial value
         run: |
-          echo "Repo variable : $MY_REPO_VAR"
+          echo "Repo variable : $MY_NAME"
