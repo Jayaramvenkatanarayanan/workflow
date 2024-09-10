@@ -1,5 +1,5 @@
 name: 06 - Contexts
-run-name: 06 - context - cutome name - ${{inputs.info}}
+
 on:
     push:
     workflow_dispatch:
@@ -9,6 +9,7 @@ on:
             type: string
             required: true
             default: 'Info'
+run-name: 06 - context - cutome name - ${{inputs.info}}
 env:
   MY_WORKFLOW_VAR: 'workflow'
   MY_OVERWRITTEN_VAR: 'workflow'
@@ -34,4 +35,4 @@ jobs:
           MY_NAME: 'Jayaram Venkatanarayanan'
         run: |
           echo "Repo variable : ${{vars.MY_REPO_VAR}}"
-          echo "workflow myName: ${{env.MY_NAME}}
+          echo "workflow myName: ${{env.MY_NAME}}"
