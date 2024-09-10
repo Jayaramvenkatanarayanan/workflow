@@ -1,9 +1,14 @@
 name: event-workflow
-on: push
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, reopened]
 jobs:
   echo:
     runs-on: ubuntu-latest
     steps:
       - name: Show the trigger
         run: |
-         echo "Event name: ${{github.event_name}}"
+          echo "Event name: ${{github.event_name}}"
