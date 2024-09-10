@@ -9,5 +9,12 @@ jobs:
           uses: actions/checkout@v4
           with:
             fetch-depth: 0
-        - name: print the directory
-          run: ls
+        - name: setup node
+          uses: actions/setup-node@v4
+          with:
+            node-version: 20
+            cache: 'npm'
+        - run: |
+           cd 04-using-actions
+        - run: npm ci
+        - run: npm run build
