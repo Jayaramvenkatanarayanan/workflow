@@ -13,10 +13,10 @@ on:
     inputs:
      myInput:
         default: myInput
-     environment:
-       description: "Env against to run"
-       type: environment
-       required: false
+     # environment:
+     #   description: "Env against to run"
+     #   type: environment
+     #   required: false
 
 jobs:
   echo:
