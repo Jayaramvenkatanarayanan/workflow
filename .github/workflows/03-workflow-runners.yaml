@@ -10,6 +10,7 @@ jobs:
         shell: bash
         run: |
           echo "i am on  ubuntu bash"
+          echo " runner os : $RUNNER_OS"
   windows-echo:
     runs-on: windows-latest
     steps:
@@ -17,6 +18,7 @@ jobs:
         shell: bash
         run: |
           echo "i am on windows bash"
+          echo " runner os : $RUNNER_OS"
   macos-echo:
     runs-on: macos-latest
     steps:
@@ -24,3 +26,4 @@ jobs:
         shell: bash
         run: |
           echo "i am on macos bash"
+          echo " runner os : $RUNNER_OS"
