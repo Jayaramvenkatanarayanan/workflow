@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
     inputs:
      myInput:
-        default: myInput values
+        default: myInput
      environment:
        description: "Env against to run"
        type: environment
@@ -25,4 +25,4 @@ jobs:
       - name: Show the trigger
         run: |
           echo "Event name: ${{github.event_name}}"
-          echo " get the value from work_dispatcher : ${{github.event.input}}"
+          echo " get the value from work_dispatcher : ${{inputs.myInput}}"
