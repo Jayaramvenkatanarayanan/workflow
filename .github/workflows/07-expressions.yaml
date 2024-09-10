@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: checking if condition
         run: |
-         if ${{inputs.debug}} == true
+         if [[${{inputs.debug}}]]== true
          echo " input value is true"
 
 
