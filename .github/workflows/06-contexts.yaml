@@ -30,5 +30,8 @@ jobs:
          echo "workflow variable: ${{env.MY_WORKFLOW_VAR}}
          echo "workflow myName: ${{env.MY_NAME}}
       - name: Retrieve Variable
+        env:
+          MY_NAME: 'Jayaram Venkatanarayanan'
         run: |
           echo "Repo variable : ${{vars.MY_REPO_VAR}}"
+          echo "workflow myName: ${{env.MY_NAME}}
