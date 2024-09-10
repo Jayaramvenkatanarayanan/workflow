@@ -10,10 +10,10 @@ jobs:
   echo-goodbye:
     runs-on: ubuntu-latest
     steps:
-      - name: say goodbye
-        run: |
-          echo " this fail message"
-          exit 1
+    #   - name: say goodbye
+    #     run: |
+    #       echo " this fail message"
+    #       exit 1
       - name: say goodbye
         run: |
           echo "Hello it's good bye message"
