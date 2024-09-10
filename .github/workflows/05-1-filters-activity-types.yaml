@@ -4,9 +4,10 @@ on:
     types: [opened, synchronize]
     branches:
       - master
+      - 'releases/**'
 jobs:
   print_message:
-    runs-on: ubuntu-latets
+    runs-on: ubuntu-latest
     steps:
       - name: echo the values
         run: |
