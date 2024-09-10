@@ -14,7 +14,7 @@ jobs:
           with:
             node-version: 20
             cache: 'npm'
-        - run: |
+        - name: install dependency
+          run: |
            cd 04-using-actions
-        - run: npm ci
-        - run: npm run build
+           ls
