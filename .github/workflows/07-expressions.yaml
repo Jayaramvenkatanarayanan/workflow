@@ -1,0 +1,22 @@
+name: 07 - Using Expressions
+run-name: 07 - Using Expressions checking
+on:
+    push:
+    workflow_dispatch:
+        inputs:
+          debug:
+            description: 'debug desc'
+            default: false
+            type: boolean
+            required: false
+jobs:
+  expressions-checking:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking if condition
+        run: |
+         if ${{inputs.debug}} == true
+         echo " input value is true"
+
+
+
