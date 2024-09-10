@@ -1,5 +1,5 @@
 name: 06 - Contexts
-run-name: My Custom workflow run name - ${{inputs.info}}
+run-name: 06 - context - cutome name - ${{inputs.info}}
 on:
     push:
     workflow_dispatch:
@@ -9,6 +9,10 @@ on:
             type: string
             required: true
             default: 'Info'
+env:
+  MY_WORKFLOW_VAR: 'workflow'
+  MY_OVERWRITTEN_VAR: 'workflow'
+  MY_NAME: 'Jayaram'
 jobs:
   echo-data:
     runs-on: ubuntu-latest
@@ -22,6 +26,9 @@ jobs:
          echo "workflow: ${{github.workflow}}"
          echo "RunId: ${{github.run_id}}"
          echo "RunNumber: ${{github.run_number}}"
+         echo " get the env varaiable"
+         echo "workflow variable: ${{env.MY_WORKFLOW_VAR}}
+         echo "workflow myName: ${{env.MY_NAME}}
       - name: Retrieve Variable
         run: |
           echo "Repo variable : ${{vars.MY_REPO_VAR}}"
