@@ -3,8 +3,8 @@ on:
   pull_request:
     types: [opened, synchronize]
     branches:
-      - 'master'
-      - 'releases/**'
+      - master
+      - releases/**
 jobs:
   print_message:
     runs-on: ubuntu-latets
