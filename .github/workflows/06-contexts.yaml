@@ -1,8 +1,14 @@
 name: 06 - Contexts
-run-name: My Custom workflow run name - ${{runner.os}}
+run-name: My Custom workflow run name - ${{inputs.info}}
 on:
     push:
     workflow_dispatch:
+        inputs:
+          info:
+            description: 'test the env'
+            type: string
+            required: true
+            default: 'Info'
 jobs:
   echo-data:
     runs-on: ubuntu-latest
