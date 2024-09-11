@@ -1,7 +1,7 @@
 name: 07 - Using Expressions
 run-name: 07 - Using Expressions checking DEBUG is ${{ inputs.debug && 'true' || 'false' }}
 on:
-  push:
+  # push:
   workflow_dispatch:
     inputs:
       debug:
