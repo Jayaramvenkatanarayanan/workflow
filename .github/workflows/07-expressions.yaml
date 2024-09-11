@@ -31,11 +31,4 @@ jobs:
         run: |
           if [ ${{ github.event_name }} == 'push' ]; then
             echo "coming the trigger event"
-          else
-            echo "unknow event"
-          fi
-          if [ ${{ github.event_name }} == 'push' ]; then
-           echo "This is a push event"
-          else
-           echo "This is an unknown event"
           fi
