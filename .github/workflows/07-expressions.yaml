@@ -17,3 +17,9 @@ jobs:
         if: ${{inputs.debug}}
         run: |
           echo " input value is true checking actual value ${{inputs.debug}}"
+          if [${{github.event_name}}=='push'];then
+            echo "this is push event"
+          echo "trigger by ${{github.event_name}}"
+          echo "branch name : ${{github.ref_name}}"
+          echo "Commit Sha: ${{github.sha}}"
+          echo "Runner OS: ${{runner.os}}"
