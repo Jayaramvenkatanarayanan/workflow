@@ -27,3 +27,8 @@ jobs:
       - name: Greeting
         run: |
           echo "Hello Jayaram"
+      - name: condition checking
+        run: |
+          if [ ${{github.event_name}} == 'push']; then
+            echo "coming the trigger event"
+          fi
