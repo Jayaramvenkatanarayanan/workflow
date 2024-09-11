@@ -1,22 +1,19 @@
 name: 07 - Using Expressions
 run-name: 07 - Using Expressions checking
 on:
-    push:
-    workflow_dispatch:
-        inputs:
-          debug:
-            description: 'debug desc'
-            default: false
-            type: boolean
-            required: false
+  push:
+  workflow_dispatch:
+    inputs:
+      debug:
+        description: "debug desc"
+        default: false
+        type: boolean
+        required: false
 jobs:
   expressions-checking:
     runs-on: ubuntu-latest
     steps:
-      - name: checking if condition
-        if: "[[${{inputs.debug}}== true]]"
+      - name: "[debug] Print start-up data"
+        if: ${{inputs.debug}}
         run: |
-          echo " input value is true"
-
-
-
+          echo " input value is true checking actual value ${{inputs.debug}}"
