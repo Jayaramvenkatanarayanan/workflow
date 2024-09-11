@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checking if condition
+        if: "[[${{inputs.debug}}== true]]"
         run: |
-         if [[${{inputs.debug}}== true]];then
           echo " input value is true"
 
 
