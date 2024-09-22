@@ -17,6 +17,8 @@ jobs:
     outputs:
       build-status: ${{ steps.build-id.outputs.status }}
       github-path: ${{ steps.github-path.outputs.path }}
+      output1: ${{steps.build-id.outputs.output1}}
+      output2: ${{steps.build-id.outputs.output2}}
     steps:
       - name: GITHUB_OUTPUT path
         run: |
@@ -27,6 +29,9 @@ jobs:
           echo " build status"
           echo "status: ${{ inputs.build-status }}"
           echo "status=${{ inputs.build-status }}" >> "$GITHUB_OUTPUT"
+          echo "output1=value1">> "$GITHUB_OUTPUT"
+          echo "output2=value2">> "$GITHUB_OUTPUT"
+          echo "$GITHUB_OUTPUT"
       - name: get the github path and set the output
         id: github-path
         run: |
