@@ -1,0 +1,14 @@
+name: 12 - Working with Outputs
+run-name: 12 - Working with Outputs
+on:
+  workflow_dispatch:
+    inputs:
+      build-status:
+        type: choice
+        options:
+          - success
+          - failure
+        default: success
+        description: "trigger should receive the following inputs"
+        required: true
+jobs:
