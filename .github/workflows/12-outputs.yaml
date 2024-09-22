@@ -52,3 +52,5 @@ jobs:
         run: |
           echo "get the status of output: ${{ needs.build.outputs.build-status }}"
           echo "get path form build: ${{ needs.build.outputs.github-path }}"
+          echo "checking the val output1: ${{ needs.build.outputs.output1}}"
+          echo "checking the val output2: ${{ needs.build.outputs.output2}}"
