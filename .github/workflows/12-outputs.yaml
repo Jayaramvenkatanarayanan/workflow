@@ -31,6 +31,7 @@ jobs:
           echo "status=${{ inputs.build-status }}" >> "$GITHUB_OUTPUT"
           echo "output1=value1">> "$GITHUB_OUTPUT"
           echo "output2=value2">> "$GITHUB_OUTPUT"
+          echo "mistake=value2" > "$GITHUB_OUTPUT"
           echo "$GITHUB_OUTPUT"
       - name: get the github path and set the output
         id: github-path
