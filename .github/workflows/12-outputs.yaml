@@ -12,3 +12,14 @@ on:
         description: "trigger should receive the following inputs"
         required: true
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GITHUB_OUTPUT path
+        run: |
+          echo "github output path >> $GITHUB_OUTPUT"
+      - name: Build
+        id: build_id
+        run: |
+          echo " build status"
+          echo "status: ${{inputs.build-status}}" >> "$GITHUB_OUTPUT"
