@@ -68,8 +68,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{inputs.node-version}}
-        cache: "npm"
-        cache-dependency-path: .app/package-lock.json
     - name: Calculate cache key
       id: cache-id
       run: |
