@@ -34,6 +34,7 @@ jobs:
           node-version: ${{inputs.node-version}}
           cache: "npm"
           cache-dependency-path: ./13-caching/my-app/package-lock.json
+
       - name: Download cached dependencies
         if: ${{ inputs.use-cache }}
         id: cache-dependencies
@@ -46,9 +47,18 @@ jobs:
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: |
           npm ci
+      - name: Download build dependencies
+        if: ${{ inputs.use-cache }}
+        id: cache-build
+        uses: actions/cache@v4
+        with:
+          path: '13-caching/my-app/build'
+          key: ${{ runner.os }}-dep-${{ hashFiles('build') }}
       - name: Build App
+        if: steps.cache-build.outputs.cache-hit != true
         run: |
           npm run build
+
       - name: Deploying to nonprod
         run: |
           echo "Deploying to nonprod"
