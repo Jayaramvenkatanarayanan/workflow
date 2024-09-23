@@ -54,3 +54,40 @@ jobs:
       - name: Deploying to nonprod
         run: |
           echo "Deploying to nonprod"
+  install-deps:
+    runs-on: ubuntu-latest
+    outputs:
+      CACHE_KEY: ${{steps.cache-id.outputs.CACHE_KEY}}
+    defaults:
+      run:
+        working-directory: app
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: setup node
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{inputs.node-version}}
+        cache: "npm"
+        cache-dependency-path: .app/package-lock.json
+    - name: Calculate cache key
+      id: cache-id
+      run: |
+       echo "CACHE_KEY=${{ runner.os }}-myapp_dep-${{ hashFiles('my-app') }}" >> $GITHUB_OUTPUT
+    - name: cache the dependencies
+      if: ${{ inputs.use-cache }}
+      id: cache-dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          app/package-lock.json
+          app/package.json
+          app/node_modules
+        key: ${{steps.cache-id.outputs.CACHE_KEY}}
+    - name: Install dependencies
+      if: steps.cache-dependencies.outputs.cache-hit != 'true'
+      run: |
+        npm ci
+    - name: Build App
+      run: |
+        npm run build
