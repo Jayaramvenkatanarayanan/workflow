@@ -40,25 +40,22 @@ jobs:
         id: cache-dependencies
         uses: actions/cache@v4
         with:
-          path: '13-caching/my-app/package-lock.json'
+          path: |
+            13-caching/my-app/package-lock.json
+            13-caching/my-app/package.json
+            13-caching/my-app/node_modules
           key: ${{ runner.os }}-dep-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-dep-${{ hashFiles('package-lock.json') }}
+            ${{ runner.os }}-dep-
 
       - name: Install dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: |
           npm ci
-      - name: Download build dependencies
-        if: ${{ inputs.use-cache }}
-        id: cache-build
-        uses: actions/cache@v4
-        with:
-          path: '13-caching/my-app/build'
-          key: ${{ runner.os }}-dep-${{ hashFiles('build') }}
       - name: Build App
-        if: steps.cache-build.outputs.cache-hit != true
         run: |
           npm run build
-
       - name: Deploying to nonprod
         run: |
           echo "Deploying to nonprod"
