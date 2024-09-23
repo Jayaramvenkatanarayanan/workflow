@@ -48,17 +48,6 @@ jobs:
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: |
             npm ci
-      - name: Download cached dependencies
-        if: ${{ inputs.use-cache && steps.cache-dependencies.outputs.cache-hit != 'true' }}
-        uses: actions/cache@v4s
-        with:
-            path: |
-              13-caching/my-app/package-lock.json
-              13-caching/my-app/package.json
-              13-caching/my-app/node_modules
-            key: ${{ runner.os }}-dep-${{ hashFiles('package-lock.json') }}
-            restore-keys: |
-              ${{ runner.os }}-dep-${{ hashFiles('package-lock.json') }}
       - name: Build App
         run: |
           npm run build
