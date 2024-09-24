@@ -23,7 +23,7 @@ jobs:
           key: ${{ runner.os }}-react-dep
       - name: npm install
         if: steps.cache-dependency.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm ci --verbose
       - name: Unit tests
         run: npm run test
       - name: Build code
