@@ -7,6 +7,10 @@ on:
 jobs:
   test-build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 14-artifacts/my-app
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -19,9 +23,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: |
-             14-artifacts/react-app/node_modules
-             14-artifacts/react-app/package.lock.json
-             14-artifacts/react-app/package.json
+             14-artifacts/my-app/node_modules
           key: ${{ runner.os }}-react-dep
       - name: npm install
         if: steps.cache-dependency.outputs.cache-hit != 'true'
