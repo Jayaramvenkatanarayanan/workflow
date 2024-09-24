@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./14-artifacts/my-app/
+        working-directory: 14-artifacts/my-app/
 
     steps:
       - name: Checkout code
@@ -39,8 +39,6 @@ jobs:
         run: |
           npm install
 
-
-
       - name: Unit tests
         run: npm run test -- --coverage
 
@@ -49,7 +47,7 @@ jobs:
         with:
           name: ${{ env.test-coverage-key }}
           path: |
-            14-artifacts/react-app/coverage
+            14-artifacts/my-app/coverage
 
       - name: Build code
         run: npm run build
