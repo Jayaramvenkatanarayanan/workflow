@@ -1,0 +1,18 @@
+name: sample-matrix
+run-name: 15.1-sample-matrix
+on:
+  workflow_dispatch:
+jobs:
+  checking-matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [18, 20, 21]
+    steps:
+      - name: select node version
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.version }}
+      - name: check the version
+        run: |
+          echo npm --version
