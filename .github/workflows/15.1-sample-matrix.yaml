@@ -1,4 +1,4 @@
-name: sample-matrix
+name: 15.1-sample-matrix
 run-name: 15.1-sample-matrix
 on:
   workflow_dispatch:
