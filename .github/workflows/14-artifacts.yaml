@@ -20,6 +20,8 @@ jobs:
         with:
           path: |
              14-artifacts/react-app/node_modules
+             14-artifacts/react-app/package.lock.json
+             14-artifacts/react-app/package.json
           key: ${{ runner.os }}-react-dep
       - name: npm install
         if: steps.cache-dependency.outputs.cache-hit != 'true'
