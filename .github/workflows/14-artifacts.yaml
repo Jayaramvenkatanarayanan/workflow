@@ -25,15 +25,20 @@ jobs:
           node-version: 20.x
       - name: Restore cached Primes
         id: cache-primes-restore
-        uses: actions/cache/restore@v4
+        uses: actions/cache@v4
         with:
           path: |
             path/to/dependencies
             some/other/dependencies
           key: ${{ runner.os }}-react-dep
+
+      - name: npm install
+        if: steps.cache-primes-restore.outputs.cache-hit != 'true'
+        run: |
+          npm install
+
       - name: Download cached dependencies
         if: steps.cache-primes-restore.outputs.cache-hit != 'true'
-        id: cache-dependency
         uses: actions/cache@v4
         with:
           path: |
@@ -42,10 +47,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-react-dep-
 
-      - name: npm install
-        if: steps.cache-dependency.outputs.cache-hit != 'true'
-        run: |
-          npm install
 
       - name: Unit tests
         run: npm run test --coverage
