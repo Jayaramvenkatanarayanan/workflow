@@ -6,6 +6,7 @@ on:
 
 jobs:
   backwards-compatibility:
+    name: ${{ matrix.os }}-${{ matrix.node-version}}
     runs-on: ubuntu-latest
     strategy:
     #   fail-fast: false # default value is true
