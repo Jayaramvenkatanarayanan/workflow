@@ -2,22 +2,22 @@ name: 15 - Working with Matrices
 run-name: 15 - Working with Matrices
 
 on:
-    workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   backwards-compatibility:
     runs-on: ubuntu-latest
     strategy:
-        fail-fast: false
-        matrix:
-          node-version: [18.x,20.x,21.x]
-          os: [ubuntu-latest,windows-latest]
-          include:
-            - version: 16.x
-              os: ubuntu-latest
-            - tag: exprimental
-              node-version: 21.x
-              os: ubuntu-latest
+      fail-fast: false
+      matrix:
+        node-version: [18.x, 20.x, 21.x]
+        os: [ubuntu-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            version: 16.x
+          - os: ubuntu-latest
+            tag: exprimental
+            node-version: 21.x
     steps:
       - name: stepup node
         uses: actions/setup-node@v4
@@ -26,7 +26,7 @@ jobs:
       - name: Fail if experimental
         if: ${{ matrix.tag == 'exprimental' }}
         run: |
-         exit 1
+          exit 1
       - name: sleep 10
         run: |
           sleep 10
