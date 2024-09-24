@@ -23,14 +23,24 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
-
-      - name: Download cached dependencies
-        id: cache-dependency
+      - name: Restore cached Primes
+        id: cache-primes-restore
         uses: actions/cache/restore@v4
+        with:
+          path: |
+            path/to/dependencies
+            some/other/dependencies
+          key: ${{ runner.os }}-react-dep
+      - name: Download cached dependencies
+        if: steps.cache-primes-restore.outputs.cache-hit != 'true'
+        id: cache-dependency
+        uses: actions/cache@v4
         with:
           path: |
             14-artifacts/my-app/node_modules
           key: ${{ runner.os }}-react-dep
+          restore-keys: |
+            ${{ runner.os }}-react-dep-
 
       - name: npm install
         if: steps.cache-dependency.outputs.cache-hit != 'true'
