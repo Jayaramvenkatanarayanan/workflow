@@ -54,6 +54,9 @@ jobs:
           - color: red  # override the shape value so it's run one time
             shape: triangle
           - opacity: 50  # add all with allend because it's obverride all
+          - color: green
+            shape: circle
+            size: medium
         exclude:
          # - opacity: 75 # to remove the function but it's in inculde overwrite value
           - color: green
