@@ -46,12 +46,12 @@ jobs:
         shape: [circle,square]
         size: [small,large]
         include:
-          - opacity: 50
+          - opacity: 50 # its inculde all because no-overwrite value
           - color: red
             opacity: 75
-          - shape: cricle
+          - shape: circle
             opacity: 100
-          - color: red
+          - color: red  # override the shape value so it's run one time
             shape: triangle
     steps:
       - name: Dummy job
