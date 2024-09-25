@@ -46,13 +46,14 @@ jobs:
         shape: [circle,square]
         size: [small,large]
         include:
-          - opacity: 50 # its inculde all because no-overwrite value
-          - color: red
+        #  - opacity: 50 # its inculde all because no-overwrite value
+          - color: red  # add red comes add the opacity
             opacity: 75
-          - shape: circle
+          - shape: circle # when run circle add opacity and override
             opacity: 100
           - color: red  # override the shape value so it's run one time
             shape: triangle
+          - opacity: 50  # add all with allend because it's obverride all
     steps:
       - name: Dummy job
         run: |
