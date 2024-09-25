@@ -55,7 +55,9 @@ jobs:
             shape: triangle
           - opacity: 50  # add all with allend because it's obverride all
         exclude:
-          - opacity: 75 # to remove the function
+         # - opacity: 75 # to remove the function but it's in inculde overwrite value
+          - color: green
+            shape: circle
     steps:
       - name: Dummy job
         run: |
