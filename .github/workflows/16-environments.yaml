@@ -20,7 +20,7 @@ jobs:
       - name: check if confition
         run: |
          echo "value : ${{ steps.checkid.outputs.name }}"
-         if[[ "${{ steps.checkid.outputs.name }}" == "true" ]]; then
+         if[[ ${{ steps.checkid.outputs.name }} == true ]]; then
           echo "comming true"
          else
           echo "else"
