@@ -19,8 +19,9 @@ jobs:
           echo "name=true" >> $GITHUB_OUTPUT
       - name: check if confition
         run: |
-          if [[ "${{ steps.checkid.outputs.name }}" == "true" ]]; then
-            echo "coming true"
-          else
-            echo "else"
-          fi
+         echo "value : ${{ steps.checkid.outputs.name }}"
+         if [[ ${{ steps.checkid.outputs.name }} == true ]]; then
+          echo "comming true"
+         else
+          echo "else"
+         fi
