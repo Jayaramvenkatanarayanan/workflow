@@ -19,7 +19,7 @@ jobs:
           echo "name=true" >> $GITHUB_OUTPUT
       - name: check if confition
         run: |
-         if[[ "${{steps.checkid.outputs.name}}" == 'true' ]]; then
+         if[[ "${{steps.checkid.outputs.name}}" == "true" ]]; then
           echo "comming true"
          else
           echo "else"
