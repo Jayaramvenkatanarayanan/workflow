@@ -1,0 +1,14 @@
+    steps:
+      - name: checking
+        run: |
+          echo "checking"
+      - name: question my checking
+        id: checkid
+        run: |
+          echo "name=true" >> $GITHUB_OUTPUT
+      - name: check if confition
+        run: |
+         echo "value : ${{ steps.checkid.outputs.name }}"
+         if [[ "${{ steps.checkid.outputs.name }}" == "true" ]]; then
+          echo "comming true"
+         fi

@@ -1,25 +1,16 @@
 name: 16 - Working with Environments
 run-name: 16 - Working with Environments ${{ inputs.target-env }}
 on:
-    workflow_dispatch:
-      inputs:
-        target-env:
-          type: environment
-          default: staging
+  workflow_dispatch:
+    inputs:
+      target-env:
+        type: environment
+        default: staging
 jobs:
   echo:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.target-env}}
     steps:
-      - name: checking
+      - name: echo vars
         run: |
-          echo "checking"
-      - name: question
-        id: checkid
-        run: |
-          echo "name=true" >> $GITHUB_OUTPUT
-      - name: check if confition
-        run: |
-         echo "value : ${{ steps.checkid.outputs.name }}"
-         if [[ "${{ steps.checkid.outputs.name }}" == "true" ]]; then
-          echo "comming true"
-         fi
+          echo " target value: ${{ vars.MY_ENV_VAR }}"
