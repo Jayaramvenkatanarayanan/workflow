@@ -13,3 +13,12 @@ jobs:
       - name: checking
         run: |
           echo "checking"
+      - name: question
+        id: checkid
+        run: |
+          echo "name=true" >> $GITHUB_OUTPUT
+      - name: check if confition
+        run: |
+         if[[ ${{steps.checkid.outputs.name}} == 'true']]; then
+          echo "comming true"
+         fi
