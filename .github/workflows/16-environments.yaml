@@ -16,7 +16,7 @@ jobs:
       - name: question
         id: checkid
         run: |
-          echo "name=true" >> $GITHUB_OUTPUT
+          echo "name=true" >> $GITHUB_ENV
       - name: check if confition
         run: |
          if[[ "${{steps.checkid.outputs.name}}" == 'true' ]]; then
