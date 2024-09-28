@@ -33,5 +33,5 @@ jobs:
     steps:
       - name: Deploy the application
         run: |
-          echo "Deploy the application  running ......"
+          echo "Deploy the application  running ...... ${{ env.my-env-value }}"
 
