@@ -52,7 +52,7 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.BOT_GITHUB_TOKEN }}
-          base: main
+          base: master
           add-paths: |
             ./custom-action/my-bun-react/package.json
             ./custom-action/my-bun-react/package-lock.json
