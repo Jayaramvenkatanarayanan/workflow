@@ -37,7 +37,7 @@ jobs:
       # update Dependencies
       - name: install the npm dependecies
         run: |
-          ncu --doctor --u
+          ncu --doctor -u
 
       # check the changes
       - name: check the package*.json files
