@@ -51,7 +51,7 @@ jobs:
         if: ${{ steps.git-check.outputs.changes == 'true' }}
         id: changes-id
         run: |
-          git diff --name-status origin/main...HEAD > pr_changes.txt
+          git diff --name-status origin/master...HEAD > pr_changes.txt
           echo "PRCHANGES<<EOF" >> $GITHUB_OUTPUT
           cat pr_changes.txt >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
