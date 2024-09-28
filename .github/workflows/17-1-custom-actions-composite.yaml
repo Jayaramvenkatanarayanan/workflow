@@ -9,7 +9,7 @@ on:
           - dev
           - prod
 env:
-  working-directory: ./13-caching/my-app
+  working-directory: ./custom-action/my-remix-app
 jobs:
   build:
     runs-on: ubuntu-latest
