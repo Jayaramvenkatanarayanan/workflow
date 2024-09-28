@@ -20,6 +20,7 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.BOT_GITHUB_TOKEN }}
           fetch-depth: 0
 
       # set up node env
