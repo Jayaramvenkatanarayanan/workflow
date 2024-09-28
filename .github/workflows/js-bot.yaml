@@ -51,15 +51,33 @@ jobs:
         if: ${{ steps.git-check.outputs.changes == 'true' }}
         id: changes-id
         run: |
+          git fetch origin
           git diff --name-status origin/master...HEAD > changes-id.txt
-          echo "changes-id<<EOF" >> $GITHUB_ENV
+          echo "CHANGES<<EOF" >> $GITHUB_ENV
           cat changes-id.txt >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
-          echo cat changes-id.txt
+
+      # check the changes
+      - name: Get all the changes -2
+        if: ${{ steps.git-check.outputs.changes == 'true' }}
+        id: changes-id-2
+        run: |
+          git fetch origin
+          git diff --name-status origin/master...HEAD > changes-id.txt
+          echo "FILES<<EOF" >> $GITHUB_OUTPUT
+          cat changes-id.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+
+
+
 
       - name: Random number
-        uses: boonya/gh-action-name-generator@v1
         id: generator
+        uses: yakubique/random-number@v1.1
+        with:
+           min: 3
+           max: 6
       # Make changes to pull request here
       - name: Create Pull Request
         if: ${{ steps.git-check.outputs.changes == 'true' }}
@@ -80,9 +98,15 @@ jobs:
 
              This pull request includes the following changes:
 
-             ${{ env.changes-id }}
+             ${{ env.CHANGES }}
+             ${{ steps.changes-id.outcome.CHANGES }}
 
-          branch: bot-branch-${{ steps.generator.outputs.name }}
+             step-2
+             ${{ env.FILES }}
+            ${{ steps.changes-id-2.outputs.FILES}}
+
+
+          branch: bot-branch-${{ steps.generator.outputs.number }}
           delete-branch: true
 
 
