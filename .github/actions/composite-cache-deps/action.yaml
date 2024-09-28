@@ -9,6 +9,11 @@ inputs:
     required: false
     description: "The working directory of the application"
     default: "."
+  target-env:
+    description:  Controls whether dev dependencies are installed
+    required: false
+    default: dev
+
 runs:
   using: composite
   steps:
@@ -27,13 +32,13 @@ runs:
       with:
         path: |
           ${{ inputs.working-dir }}/node_modules
-        key: ${{ runner.os }}-myApp-${{ hashFiles('inputs.working-dir/package-lock.json')}}
+        key: ${{ runner.os }}-myApp-${{ input.target-env }}-${{ hashFiles('inputs.working-dir/package-lock.json')}}
         restore-keys: |
-          ${{ runner.os }}-myApp-
+          ${{ runner.os }}-myApp-${{ input.target-env }}-${{ hashFiles('inputs.working-dir/package-lock.json')}}
 
     - name: Install dependencies
       shell: bash
       if: steps.cache.outputs.cache-hit != 'true'
       working-directory: ${{ inputs.working-dir }}
       run: |
-        npm install
+         npm ci ${{ input.target-env == 'dev' && '' || ci --omit=dev }}
