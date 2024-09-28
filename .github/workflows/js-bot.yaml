@@ -52,6 +52,10 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.BOT_GITHUB_TOKEN }}
+          base: main
+          add-paths: |
+            ./custom-action/my-bun-react/package.json
+            ./custom-action/my-bun-react/package-lock.json
           commit-message: bot update dependency
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           title: bot update package*.json files
