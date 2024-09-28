@@ -9,7 +9,7 @@ on:
           - dev
           - prod
 env:
-  working-directory: ./custom-action/my-remix-app
+  working-directory: ./custom-action/my-bun-react
 jobs:
   build:
     runs-on: ubuntu-latest
