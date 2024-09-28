@@ -11,4 +11,4 @@ jobs:
         with:
           fetch-depth: 0
       - name: Check for dependency updates
-        uses: ./.github/actions/js-dependency-update/action.yaml
+        uses: ./.github/actions/js-dependency-update
