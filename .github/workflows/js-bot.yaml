@@ -57,9 +57,9 @@ jobs:
           echo "EOF" >> $GITHUB_ENV
           echo cat changes-id.txt
 
-      - name: Make changes to pull request
-        if: ${{ steps.git-check.outputs.changes == 'true' }}
-        run: date +%s > report.txt
+      - name: Random number
+        uses: boonya/gh-action-name-generator@v1
+        id: generator
       # Make changes to pull request here
       - name: Create Pull Request
         if: ${{ steps.git-check.outputs.changes == 'true' }}
@@ -82,7 +82,7 @@ jobs:
 
              ${{ env.changes-id }}
 
-          branch: bot-branch
+          branch: bot-branch-${{ steps.generator.outputs.name }}
           delete-branch: true
 
 
