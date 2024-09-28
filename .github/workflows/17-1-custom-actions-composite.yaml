@@ -26,7 +26,7 @@ jobs:
       - name: Setup Node and NPM Dependencies
         uses: ./.github/actions/composite-cache-deps
         with:
-          node-version: ''
+          node-version: 18.x
           working-dir: ${{ env.working-directory }}
           target-env: ${{ inputs.target-env }}
 
