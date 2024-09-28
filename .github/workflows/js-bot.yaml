@@ -52,7 +52,7 @@ jobs:
         with:
           token: ${{ secrets.BOT_GITHUB_TOKEN }}
           commit-message: bot update dependency
-          committer: github-actions[bot]
+          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           title: bot update package*.json files
           body: |
             - Dependency Update
