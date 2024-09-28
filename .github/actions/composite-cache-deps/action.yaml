@@ -32,9 +32,9 @@ runs:
       with:
         path: |
           ${{ inputs.working-dir }}/node_modules
-        key: ${{ runner.os }}-myApp-${{ input.target-env }}-${{ hashFiles('inputs.working-dir/package-lock.json')}}
+        key: ${{ runner.os }}-myApp-${{ inputs.target-env }}-${{ hashFiles('inputs.working-dir/package-lock.json')}}
         restore-keys: |
-          ${{ runner.os }}-myApp-${{ input.target-env }}-${{ hashFiles('inputs.working-dir/package-lock.json')}}
+          ${{ runner.os }}-myApp-${{ inputs.target-env }}-${{ hashFiles('inputs.working-dir/package-lock.json')}}
 
     - name: Install dependencies
       shell: bash
