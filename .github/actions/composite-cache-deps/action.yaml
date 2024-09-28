@@ -21,8 +21,12 @@ runs:
       id: cache
       uses: actions/cache@v4
       with:
-       path: ${{ inputs.working-dir }}/node_modules
-       key: ${{ runner.os }}-myApp-${{ hashFiles(format('{0}/{1}',inputs.working-dir,'package-lock.json'))}}
+       path: |
+         ${{ inputs.working-dir }}/node_modules
+         ${{ inputs.working-dir }}/package.json
+       key: ${{ runner.os }}-myApp-${{ hashFiles(format(inputs.working-dir'/package-lock.json'))}}
+       restore-keys: |
+            ${{ runner.os }}-myApp-
 
     - name: Install dependencies
       shell: bash
