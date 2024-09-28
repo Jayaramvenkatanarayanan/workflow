@@ -9,7 +9,7 @@ on:
           - dev
           - prod
 env:
-  working-directory: ./17-custom-actions/composite
+  working-directory: ./custom-action/my-remix-app
 jobs:
   build:
     runs-on: ubuntu-latest
