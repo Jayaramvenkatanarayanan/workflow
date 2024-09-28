@@ -51,7 +51,7 @@ jobs:
         if: ${{ steps.git-check.outputs.changes == 'true' }}
         id: changes-id
         run: |
-          git diff --name-status origin/main...HEAD > changes-id.txt
+          git diff --name-status origin/master...HEAD > changes-id.txt
           echo "changes-id<<EOF" >> $GITHUB_ENV
           cat changes-id.txt >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
