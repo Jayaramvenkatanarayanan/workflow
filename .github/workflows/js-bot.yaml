@@ -44,11 +44,17 @@ jobs:
       - name: check the package*.json files
         id: git-check
         run: |
+          git diff --exit-code || echo "changes=true" >> $GITHUB_OUTPUT
+
+      # check the changes
+      - name: Get all the changes
+        if: ${{ steps.git-check.outputs.changes == 'true' }}
+        id: changes-id
+        run: |
           git diff --name-status origin/main...HEAD > pr_changes.txt
           echo "PRCHANGES<<EOF" >> $GITHUB_OUTPUT
           cat pr_changes.txt >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
-          git diff --exit-code || echo "changes=true" >> $GITHUB_OUTPUT
 
       - name: Make changes to pull request
         if: ${{ steps.git-check.outputs.changes == 'true' }}
@@ -75,7 +81,7 @@ jobs:
 
              This pull request includes the following changes:
 
-             ${{ steps.git-check.outputs.PRCHANGES }}
+             ${{ steps.changes-id.outputs.PRCHANGES }}
 
           branch: bot-branch
           delete-branch: true
