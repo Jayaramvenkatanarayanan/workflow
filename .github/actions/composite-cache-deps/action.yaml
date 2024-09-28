@@ -27,8 +27,6 @@ runs:
       with:
         path: |
           ${{ inputs.working-dir }}/node_modules
-          ${{ inputs.working-dir }}/package.json
-          ${{ inputs.working-dir }}/package-lock.json
         key: ${{ runner.os }}-myApp-${{ hashFiles('inputs.working-dir/package-lock.json')}}
         restore-keys: |
           ${{ runner.os }}-myApp-

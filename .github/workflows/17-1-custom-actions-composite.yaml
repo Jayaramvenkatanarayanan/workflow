@@ -27,6 +27,7 @@ jobs:
         uses: ./.github/actions/composite-cache-deps
         with:
           node-version: ''
+          working-dir: ./../17-custom-actions/composite
       - name: Test
         run: |
           npm run test
