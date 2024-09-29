@@ -17,6 +17,6 @@ inputs:
 
 runs:
   using: docker
-  image: ./.github/actions/docker-ping-url/bun-server/Dockerfile
+  image: ./bun-server/Dockerfile
 
 
