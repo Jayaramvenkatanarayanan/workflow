@@ -3,3 +3,4 @@
 # dependencies
 node_modules
 !.github/actions/**/node_modules
+!.github/actions/**/bun-server/node_modules
