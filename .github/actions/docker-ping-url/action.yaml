@@ -20,6 +20,6 @@ runs:
     - name: Build and push
       uses: docker/build-push-action@v6
       with:
-        context: ./bun-server
+        context: .
         push: true
         tags: bun-js:latest
