@@ -11,4 +11,5 @@ jobs:
     needs: deploy
     uses: Jayaramvenkatanarayanan/github-reusable/.github/workflows/e2e.yaml@master
     with:
-      access-token: ${{ secrets.BOT_GITHUB_TOKEN }}
+      secrets:
+        access-token: ${{ secrets.REPO_TOKEN }}
