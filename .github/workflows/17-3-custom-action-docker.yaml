@@ -2,10 +2,6 @@ name:  17 - 3- Custom Actions - Docker
 run-name:  17 - 2 - Custom Actions - Docker
 on:
     workflow_dispatch:
-      inputs:
-        url:
-         type: string
-         default: 'https://www.google.com'
 
 jobs:
   ping-url:
@@ -18,4 +14,5 @@ jobs:
       - name: Docker actions
         uses: ./.github/actions/docker-ping-url
         with:
-          url: ${{ inputs.url }}
+          docker_username: ${{ secrets.DOCKER_USERNAME }}
+          docker_token: ${{ secrets.DOCKER_TOKEN }}
