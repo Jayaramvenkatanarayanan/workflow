@@ -21,4 +21,4 @@ runs:
       uses: docker/build-push-action@v6
       with:
         push: true
-        tags: myApp:latest
+        tags: bun-js:latest
