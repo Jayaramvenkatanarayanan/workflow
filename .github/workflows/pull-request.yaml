@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v4
+      - name: sleep 50
+        run: |
+          sleep 50
       - name: Ping URL
         uses: ./.github/actions/docker-ping
         with:
