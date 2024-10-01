@@ -4,7 +4,7 @@ set -e
 
 # Get inputs from environment variables
 URL="${INPUT_URL}"
-MAX_TRIALS="${INPUT_MAX_TRAIL}"
+MAX_TRIALS="${INPUT_MAX-TRAIL}"
 DELAY="${INPUT_DELAY}"
 
 
