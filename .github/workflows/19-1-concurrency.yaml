@@ -13,6 +13,6 @@ jobs:
       - name: Ping URL
         uses: ./.github/actions/docker-ping
         with:
-          url: http://www.google.com/
-          max-trail: 20
-          delay: 5
+            url: http://www.google.com/ # Replace with a valid but unreachable URL
+            max_trials: 20
+            delay: 5
