@@ -3,9 +3,9 @@
 set -e
 
 # Get inputs from environment variables
-URL="${url}"
-MAX_TRIALS="${max-trail}"
-DELAY="${delay}"
+URL="${INPUT_URL}"
+MAX_TRIALS="${INPUT_MAX_TRIALS}"
+DELAY="${INPUT_DELAY}"
 
 
 echo "URL: $URL"
