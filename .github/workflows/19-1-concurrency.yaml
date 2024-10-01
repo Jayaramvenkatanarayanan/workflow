@@ -13,6 +13,6 @@ jobs:
       - name: Ping URL
         uses: ./.github/actions/docker-ping
         with:
-          url: 'https://www.youtube.com/watch?v=ypmloNrdLOU'
+          url: 'http://www.google.com'
           max-trail: 20
           delay: 5
