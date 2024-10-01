@@ -7,11 +7,11 @@ inputs:
   max-trail:
     description: the trails
     required: true
-    default: "10"
+    default: "20"
   delay:
     description: the delay
     required: true
-    default: "1"
+    default: "5"
 runs:
   using: docker
   image: Dockerfile
