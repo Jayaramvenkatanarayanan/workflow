@@ -1,17 +1,17 @@
-name: "Docker Ping URL"
-description: "Pings a URL a specified number of times with a delay"
+name: Docker ping url
+description: Docker runs and ping url with trials
 inputs:
   url:
-    description: "The URL to ping"
+    description: the url
     required: true
-  max_trials:
-    description: "Maximum number of ping trials"
+  max-trail:
+    description: the trails
     required: true
     default: "10"
   delay:
-    description: "Delay between pings in seconds"
+    description: the delay
     required: true
     default: "1"
 runs:
-  using: "docker"
-  image: "Dockerfile
+  using: docker
+  image: Dockerfile
