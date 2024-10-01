@@ -1,0 +1,17 @@
+name: Docker ping url
+description: Docker runs and ping url with trials
+inputs:
+  url:
+    description: the url
+    required: true
+  max-trail:
+    description: the trails
+    required: true
+    default: "10"
+  delay:
+    description: the delay
+    required: true
+    default: "1"
+runs:
+  using: docker
+  image: Dockerfile
