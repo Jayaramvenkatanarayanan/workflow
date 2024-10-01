@@ -14,5 +14,5 @@ jobs:
         uses: ./.github/actions/docker-ping
         with:
           url: http://www.google.com/
-          max-trail: 20
+          trials: 20
           delay: 5

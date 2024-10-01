@@ -4,7 +4,7 @@ inputs:
   url:
     description: the url
     required: true
-  max-trail:
+  trials:
     description: the trails
     required: true
     default: "20"
