@@ -4,7 +4,7 @@ inputs:
   url:
     description: "The URL to ping"
     required: true
-  max_trials:
+  max_trail:
     description: "Maximum number of ping trials"
     required: true
     default: "10"
