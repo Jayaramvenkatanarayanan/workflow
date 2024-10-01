@@ -7,6 +7,11 @@ URL="${url}"
 MAX_TRIALS="${max-trail}"
 DELAY="${delay}"
 
+
+echo "URL: $URL"
+echo "Max Trials: $MAX_TRIALS"
+echo "Delay: $DELAY"
+
 # Loop to ping the URL the specified number of times
 for i in $(seq 1 "$MAX_TRIALS"); do
   if curl --silent --fail "$URL"; then
