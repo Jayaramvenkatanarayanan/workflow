@@ -2,7 +2,7 @@ name: Pull request
 run-name: Pull request check with cuncurrecy
 on:
   pull_request:
-    branches: master
+
 concurrency:
   group: pull_request-${{ github.ref }}
   cancel-in-progress: true
